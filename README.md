@@ -1,7 +1,7 @@
-##Project Requirement
+# Project Requirement
 This project will do several things, such as:
-- **User can purchase the items**
-    ###Request
+- ## User can purchase the items
+    ### Request
     **URI: /api/v1/checkout**\
     **Method: POST**\
     **Description**: It will validate whether the promo exist or not, if not exist then it will throw the error, after the transaction is inserted it will update the items value\
@@ -22,7 +22,7 @@ This project will do several things, such as:
       "paid_amount": 300000
   }
   ````
-  ###Response
+  ### Response
   ````
   {
     "code": 200,
@@ -46,8 +46,8 @@ This project will do several things, such as:
     }
   }
   ````
-- **User can search for items**
-  ###Request
+- ## User can search for items
+  ### Request
   **URI: /api/v1/search**\
   **Method: GET**\
   **Description**: It will from the items that contains the keyword \
@@ -57,7 +57,7 @@ This project will do several things, such as:
       "query": "keyword"
   }
   ````
-  ###Response
+  ### Response
   ````
   {
     "code": 200,
@@ -76,8 +76,8 @@ This project will do several things, such as:
     ]
   }
   ````
-- **User can review for products**
-  ###Request
+- ## User can review for products
+  ### Request
   **URI: /api/v1/products/{id}/review**\
   **Method: POST**\
   **Description**: It will add review to product \
@@ -90,15 +90,15 @@ This project will do several things, such as:
       "review": "asdasdsa"
   }
   ````
-  ###Response
+  ### Response
   ````
   {
     "code": 200,
     "message": "success"
   }
   ````
-- **User can view review of products**
-  ###Request
+- ## User can view review of products
+  ### Request
   **URI: /api/v1/products/{id}/reviews**\
   **Method: GET**\
   **Description**: It will get a reviews from product\
@@ -108,7 +108,7 @@ This project will do several things, such as:
       "sort": "desc"
   }
   ````
-  ###Response
+  ### Response
   ````
   {
     "code": 200,
