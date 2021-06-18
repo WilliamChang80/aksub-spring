@@ -5,10 +5,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class CreateProductRequestDto {
-
+public class CreateProductTypeRequestDto {
     private String name;
     private String description;
-    private Long price;
-    private Long productTypeId;
 }

@@ -3,12 +3,11 @@ package com.training.spring.dto;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
 @NoArgsConstructor
-public class CreateProductRequestDto {
+@Data
+public class UpdateProductRequestDto {
 
     private String name;
     private String description;
     private Long price;
-    private Long productTypeId;
 }
