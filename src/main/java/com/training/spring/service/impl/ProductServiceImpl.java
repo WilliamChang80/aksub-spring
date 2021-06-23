@@ -1,9 +1,6 @@
 package com.training.spring.service.impl;
 
-import com.training.spring.dto.CreateProductRequestDto;
-import com.training.spring.dto.GetProductStatsResponseDto;
-import com.training.spring.dto.GetProductsResponseDto;
-import com.training.spring.dto.UpdateProductRequestDto;
+import com.training.spring.dto.*;
 import com.training.spring.entity.Product;
 import com.training.spring.entity.ProductType;
 import com.training.spring.exception.DataNotFoundException;
@@ -12,6 +9,7 @@ import com.training.spring.repository.ProductTypeRepository;
 import com.training.spring.service.ProductService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -102,5 +100,23 @@ public class ProductServiceImpl implements ProductService {
                 .numberOfProducts(numberOfProducts)
                 .averagePrice(averagePrice)
                 .build();
+    }
+
+    @Override
+    public SearchProductResponseDto searchProduct(String query) {
+        List<Product> products = productRepository.findAllByNameContains(query);
+        List<ProductDto> productDtoList = products.stream()
+                .map(product -> ProductDto.builder()
+                        .id(product.getId())
+                        .name(product.getName())
+                        .price(product.getPrice())
+                        .build()).collect(Collectors.toList());
+
+        SearchProductResponseDto responseDto = new SearchProductResponseDto();
+        responseDto.setProducts(productDtoList);
+        responseDto.setCode(HttpStatus.OK.value());
+        responseDto.setMessage("success");
+
+        return responseDto;
     }
 }

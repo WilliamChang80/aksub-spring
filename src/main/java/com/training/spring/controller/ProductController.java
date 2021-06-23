@@ -1,14 +1,12 @@
 package com.training.spring.controller;
 
 import com.training.spring.constant.Url;
-import com.training.spring.dto.CreateProductRequestDto;
-import com.training.spring.dto.GetProductStatsResponseDto;
-import com.training.spring.dto.GetProductsResponseDto;
-import com.training.spring.dto.UpdateProductRequestDto;
+import com.training.spring.dto.*;
 import com.training.spring.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.websocket.server.PathParam;
 import java.util.List;
 
 @RestController
@@ -45,6 +43,11 @@ public class ProductController {
     @GetMapping(Url.GET_PRODUCT_STATS_URL)
     public GetProductStatsResponseDto getProductStats() {
         return productService.getProductStats();
+    }
+
+    @GetMapping(Url.SEARCH_PRODUCT_URL)
+    public SearchProductResponseDto searchProduct(@RequestParam String query) {
+        return productService.searchProduct(query);
     }
 
 }

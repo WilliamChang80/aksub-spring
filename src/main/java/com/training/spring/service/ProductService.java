@@ -1,9 +1,6 @@
 package com.training.spring.service;
 
-import com.training.spring.dto.CreateProductRequestDto;
-import com.training.spring.dto.GetProductStatsResponseDto;
-import com.training.spring.dto.GetProductsResponseDto;
-import com.training.spring.dto.UpdateProductRequestDto;
+import com.training.spring.dto.*;
 import com.training.spring.entity.Product;
 
 import java.util.List;
@@ -21,4 +18,6 @@ public interface ProductService {
     void updateProduct(Long id, UpdateProductRequestDto requestDto);
 
     GetProductStatsResponseDto getProductStats();
+
+    SearchProductResponseDto searchProduct(String query);
 }

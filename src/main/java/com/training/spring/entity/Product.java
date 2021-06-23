@@ -19,6 +19,7 @@ public class Product extends BaseEntity {
     private String name;
     private String description;
     private Long price;
+    private Long quantity;
 
     @OneToOne(cascade = CascadeType.ALL)
     private ProductType productType;
